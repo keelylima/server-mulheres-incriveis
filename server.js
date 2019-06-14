@@ -7,6 +7,10 @@ const server = express();
 server.use(cors());
 server.use(bodyParser.json());
 
-server.get('/', (req, res) => {
-    res.send(controller.getAll());
+server.get('/', async (req, res) => {
+        controller.getAll()
+        .then((listaDeMulheres) => res.send(listaDeMulheres));
 })
+
+server.listen(3000)
+console.log('ta rodando na porta 3000 irmão')
